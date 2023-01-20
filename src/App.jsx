@@ -15,23 +15,30 @@ import { useState } from "react";
  [x] todo - Desabilite o botão de Login equanto você está executando o login.
  [x] todo - Mostre uma mensagem de erro de login() caso o Login falhe. A mensagem deve ser limpa a cada nova tentativa de Login.
  
- [] todo - Mostre um alerta caso o login seja efetuado com sucesso (javascript alert). Investigue a função login() para entender como ter sucesso na requisição.
+ [x] todo - Mostre um alerta caso o login seja efetuado com sucesso (javascript alert). Investigue a função login() para entender como ter sucesso na requisição.
 */
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [loging, setLogging] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   async function handleClickLogin() {
     setErrorMessage("");
     setLogging(true);
+
     try {
       await login({
         email,
         password,
       });
+
+      setEmail("");
+      setPassword("");
+
+      alert("Login realizado com sucesso!");
     } catch (error) {
       setErrorMessage(error.message);
     } finally {
