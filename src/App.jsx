@@ -11,7 +11,7 @@ import { useState } from "react";
  Tarefas:
  [x] todo - O botão de login deve disparar a função login(), importada no topo deste arquivo, e passar os dados necessários.
 
- [] todo - Desabilite o botão de Login caso o e-mail esteja em branco OU a senha for menor que 6 dígitos.
+ [x] todo - Desabilite o botão de Login caso o e-mail esteja em branco OU a senha for menor que 6 dígitos.
  [] todo - Desabilite o botão de Login equanto você está executando o login.
  [] todo - Mostre uma mensagem de erro de login() caso o Login falhe. A mensagem deve ser limpa a cada nova tentativa de Login.
  
@@ -56,7 +56,12 @@ export default function LoginForm() {
         </div>
 
         <div className="button">
-          <button onClick={handleClickLogin}>Login</button>
+          <button
+            disabled={email.length === 0 || password.length < 6}
+            onClick={handleClickLogin}
+          >
+            Login
+          </button>
         </div>
       </div>
     </div>
