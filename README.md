@@ -1,4 +1,4 @@
-# fernandev
+# Créditos para o criador do desafio: fernandev
 
 ## React Interview Challenge #02
 
